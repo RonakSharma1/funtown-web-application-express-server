@@ -1,13 +1,20 @@
-var express = require('express');
-var app = express();
+const axios = require ('axios')
 
-app.get('/', function (req, res) {
-   res.send('Hello World');
-})
+module.exports = async (req, res) => {
 
-var server = app.listen(8081, function () {
-   var host = server.address().address
-   var port = server.address().port
+   const {numberOfParticipants} = req.query
+   const boredApiUrl = "http://www.boredapi.com/api/activity/";
+
+   try {
+      const {data} = await axios.get(boredApiUrl, {
+         params: {
+             participants: numberOfParticipants
+         }});
+      res.json(data);
+
+   } catch(error){
+      console.log(error.message)
+      res.sendStatus(500)
+   }
    
-   console.log("Example app listening at http://%s:%s", host, port)
-})
+}
