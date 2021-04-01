@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    browser: true,
+    browser: false,
     es2021: true,
     node: true,
     jest: true,
@@ -12,10 +12,5 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: "module",
-  },
-  settings: {
-    react: {
-      version: "detect",
-    },
   },
 };
