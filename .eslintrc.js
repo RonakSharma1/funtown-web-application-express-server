@@ -5,23 +5,17 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  extends: ["eslint:recommended"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: 'module',
-  },
-  plugins: ['react'],
-  rules: {
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
+    sourceType: "module",
   },
   settings: {
     react: {
-      version: 'detect',
+      version: "detect",
     },
   },
 };

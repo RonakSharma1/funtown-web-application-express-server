@@ -4,10 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "lint": "eslint src && prettier src --check"
   },
   "author": "",
@@ -15,7 +11,6 @@
   "dependencies": {
     "axios": "^0.21.1",
     "cors": "^2.8.5",
-    "eslint-plugin-react": "^7.23.1",
     "express": "^4.17.1"
   },
   "devDependencies": {
