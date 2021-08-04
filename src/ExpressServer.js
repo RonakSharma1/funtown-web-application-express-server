@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const boredApiRouteHandler = require("./Routes/ExperimentOne/BoredApiCaller");
+const tmdbApiRouteHandler = require("./Routes/ExperimentTwo/TMDBApiCaller");
 
 const app = express();
 
@@ -9,6 +10,7 @@ app.use(cors());
 
 //Route the Requests
 app.get("/boredApi", boredApiRouteHandler);
+app.get("/tmdbApi", tmdbApiRouteHandler);
 
 //Start the server
 const port = process.env.PORT || 5000;
