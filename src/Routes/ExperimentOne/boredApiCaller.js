@@ -13,7 +13,6 @@ module.exports = async (req, res) => {
     console.log(participants);
     res.json(data);
   } catch (error) {
-    console.log(error.message);
-    res.sendStatus(500);
+    res.sendStatus(error.message);
   }
 };
