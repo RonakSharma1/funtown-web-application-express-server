@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const boredApiRouteHandler = require("./Routes/ExperimentOne/BoredApiCaller");
+const boredApiRouteHandler = require("./Routes/ExperimentOne/boredApiCaller");
 const tmdbApiRouteHandler = require("./Routes/ExperimentTwo/TMDBApiCaller");
 
 const app = express();
