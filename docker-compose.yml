@@ -1,0 +1,14 @@
+version: '3'
+services:
+ funtownapp:
+  build:
+   dockerfile: Dockerfile.dev
+   context: ./funtown-web-application
+  ports:
+   - "3000:3000"
+ funtownserver:
+  build:
+   dockerfile: Dockerfile.dev
+   context: ./funtown-web-application-express-server
+  ports:
+   - "5000:5000"
