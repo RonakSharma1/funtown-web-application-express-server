@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src && prettier src --check"
+    "lint": "eslint src && prettier src --check",
+    "start": "node src/ExpressServer.js"
   },
   "author": "",
   "license": "ISC",
