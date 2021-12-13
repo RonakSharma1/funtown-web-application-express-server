@@ -1,12 +1,10 @@
 const axios = require("axios");
-var config = require("../../../config.json");
 
-module.exports = async (req, res) => {
-  const { pageNumber } = req.query;
-  const {tmdbApiKey}  = config
+module.exports.handler = async (req) => {
+  const { pageNumber } = req.queryStringParameters;
+  const tmdbApiKey = process.env.TMDB_ACCESS_TOKEN
   const tmdbGenreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${tmdbApiKey}`;
   const tmdbApiUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${tmdbApiKey}&page=${pageNumber}`;
-
   try {
     const [tmdbApiData, tmbdGenreData] = await Promise.all([
       axios.get(tmdbApiUrl),
@@ -14,12 +12,19 @@ module.exports = async (req, res) => {
     ]);
     const listOfTrendingFilms = tmdbApiData.data.results;
     const listOfGenres = tmbdGenreData.data.genres;
-    res.json({
-      listOfTrendingFilms: listOfTrendingFilms,
-      listOfGenres: listOfGenres,
-    });
+    
+    console.log(listOfTrendingFilms);
+    return {
+      statusCode: 200,
+      body:JSON.stringify({
+        "listOfTrendingFilms": listOfTrendingFilms,
+        "listOfGenres": listOfGenres,
+      })
+    };
   } catch (error) {
-    console.log(error.message);
-    res.sendStatus(error.message);
+    return {
+      statusCode: error.statusCode,
+      body: JSON.stringify(error)
+    };
   }
 };

@@ -1,0 +1,25 @@
+org: ronaksharma
+app: serverless-trial
+service: server-trial
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: '20201221'
+  environment:
+    TMDB_ACCESS_TOKEN: '7239eada67524ea5fff744060e4ffe80'
+
+functions:
+  bored-api:
+    handler: src/Routes/ExperimentOne/handler.handler
+    events:
+      - httpApi:
+          path: /boredApi
+          method: get
+  tmdb-api:
+    handler: src/Routes/ExperimentTwo/handler.handler
+    events:
+      - httpApi:
+         path: /tmdbApi
+         method: get
